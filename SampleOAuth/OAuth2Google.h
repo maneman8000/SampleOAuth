@@ -8,17 +8,39 @@
 
 #import <Foundation/Foundation.h>
 
+@class OAuth2Google;
+
+@protocol OAuth2GoogleDelegate <NSObject>
+
+@optional
+
+// use for receiving requestAccessTokenWithAuthorizationCode result
+- (void)oauth2Google:(OAuth2Google*)oauth didReceiveAccessToken:(NSString*)token;
+- (void)oauth2Google:(OAuth2Google*)oauth didFailWithErrorCode:(NSString*)code;
+
+@end
 
 @interface OAuth2Google : NSObject {
+@private
+    id <OAuth2GoogleDelegate> delegate;
     NSString *scope;
     NSString *clientId;
     NSString *clientSecret;
-    BOOL authorized;
+    NSString *accessToken;
 }
-@property (nonatomic, assign, readonly) BOOL authorized;
+
+@property (nonatomic, assign) id <OAuth2GoogleDelegate> delegate;
 
 - (id)initWithScope:(NSString*)scp clientId:(NSString *)cid clientSecret:(NSString*)csecret;
 - (BOOL)authorized;
+
+// get user authorization URL
 - (NSURL*)authorizationURL;
+
+// load acess token asynchronously with user authorization code
+- (void)requestAccessTokenWithAuthorizationCode:(NSString*)authorizationCode;
+
+// retun authorized request object, if not authorized return nil
+- (NSMutableURLRequest*)authorizedRequestWithURL;
 
 @end

@@ -18,14 +18,13 @@ NSString* encodeURIComponent(NSString* s) {
 }
 
 @implementation OAuth2Google
-@synthesize authorized;
+@synthesize delegate;
 
 - (id)initWithScope:scp clientId:(NSString *)cid clientSecret:(NSString*)csecret {
     if ((self = [super init]) != nil) {
         scope = [[NSString alloc] initWithString:scp];
         clientId = [[NSString alloc] initWithString:cid];
         clientSecret = [[NSString alloc] initWithString:csecret];
-        authorized = NO;
     }
     return self;
 }
@@ -34,7 +33,12 @@ NSString* encodeURIComponent(NSString* s) {
     [scope release];
     [clientId release];
     [clientSecret release];
+    [accessToken release];
     [super dealloc];
+}
+
+- (BOOL)authorized {
+    return accessToken ? YES : NO;
 }
 
 - (NSURL*)authorizationURL {
@@ -43,6 +47,10 @@ NSString* encodeURIComponent(NSString* s) {
              encodeURIComponent(clientId),
              encodeURIComponent(scope),
              encodeURIComponent(@"urn:ietf:wg:oauth:2.0:oob")]];
+}
+
+- (NSMutableURLRequest*)authorizedRequestWithURL {
+    return nil;
 }
 
 @end
