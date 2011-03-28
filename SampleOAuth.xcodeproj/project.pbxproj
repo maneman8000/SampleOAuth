@@ -94,13 +94,11 @@
 		C300AF0D133C47E70000EB49 /* SampleOAuth */ = {
 			isa = PBXGroup;
 			children = (
+				C300ECA71340E901004F82FF /* OAuth2Google */,
 				C393F44E13405BC20001DA74 /* TinyJSON */,
 				C30B9255133CDB6D00943E1B /* MainViewController.h */,
 				C30B9256133CDB6D00943E1B /* MainViewController.m */,
 				C30B9257133CDB6D00943E1B /* MainViewController.xib */,
-				C30B9258133CDB6D00943E1B /* OAuth2Google.h */,
-				C3A1B1D81340918800D16494 /* OAuth2GoogleClientSecret.h */,
-				C30B9259133CDB6D00943E1B /* OAuth2Google.m */,
 				C3FA7DD5133C993B00687BDA /* AuthorizationPageController.h */,
 				C3FA7DD6133C993B00687BDA /* AuthorizationPageController.m */,
 				C3FA7DD7133C993C00687BDA /* AuthorizationPageController.xib */,
@@ -121,6 +119,16 @@
 				C300AF14133C47E70000EB49 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C300ECA71340E901004F82FF /* OAuth2Google */ = {
+			isa = PBXGroup;
+			children = (
+				C30B9258133CDB6D00943E1B /* OAuth2Google.h */,
+				C3A1B1D81340918800D16494 /* OAuth2GoogleClientSecret.h */,
+				C30B9259133CDB6D00943E1B /* OAuth2Google.m */,
+			);
+			name = OAuth2Google;
 			sourceTree = "<group>";
 		};
 		C393F44E13405BC20001DA74 /* TinyJSON */ = {
