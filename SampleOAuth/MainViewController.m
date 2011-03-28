@@ -21,6 +21,7 @@
         oauth = [[OAuth2Google alloc] initWithScope:@"https://picasaweb.google.com/data"
                                            clientId:GOOGLE_OAUTH2_CLIENT_ID
                                        clientSecret:GOOGLE_OAUTH2_CLIENT_SECRET];
+        oauth.delegate = self;
     }
     return self;
 }
@@ -77,8 +78,18 @@
 }
 
 - (void)authorizationPageController:(AuthorizationPageController *)controller
-             didFinishUserAuthorize:(NSString *)authorizationCode {
-    [console setText:authorizationCode];
+             didFinishUserAuthorize:(NSString *)code {
+    [console setText:[NSString stringWithFormat:@"request with code : %@", code]];
+    [oauth requestAccessTokenWithAuthorizationCode:code];
 }
+
+- (void)oauth2Google:(OAuth2Google*)oauth didReceiveAccessToken:(NSString*)token {
+    [console setText:[NSString stringWithFormat:@"[SUCCESS]\n%@", token]];
+}
+
+- (void)oauth2Google:(OAuth2Google*)oauth didFailWithErrorMessage:(NSString*)message {
+    [console setText:[NSString stringWithFormat:@"[ERROR]\n%@", message]];
+}
+
 
 @end

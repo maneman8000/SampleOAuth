@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AuthorizationPageController.h"
+#import "OAuth2Google.h"
 
-@class OAuth2Google;
-
-@interface MainViewController : UIViewController <AuthorizationPageControllerDelegate> {
+@interface MainViewController : UIViewController <AuthorizationPageControllerDelegate, OAuth2GoogleDelegate> {
     UITextView *console;
     OAuth2Google *oauth;
     AuthorizationPageController * authorizationPageController;

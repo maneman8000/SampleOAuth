@@ -16,7 +16,7 @@
 
 // use for receiving requestAccessTokenWithAuthorizationCode result
 - (void)oauth2Google:(OAuth2Google*)oauth didReceiveAccessToken:(NSString*)token;
-- (void)oauth2Google:(OAuth2Google*)oauth didFailWithErrorCode:(NSString*)code;
+- (void)oauth2Google:(OAuth2Google*)oauth didFailWithErrorMessage:(NSString*)message;
 
 @end
 
@@ -27,6 +27,8 @@
     NSString *clientId;
     NSString *clientSecret;
     NSString *accessToken;
+    NSURLConnection *connectionInProgress;
+    NSMutableData *jsonData;
 }
 
 @property (nonatomic, assign) id <OAuth2GoogleDelegate> delegate;
@@ -38,7 +40,7 @@
 - (NSURL*)authorizationURL;
 
 // load acess token asynchronously with user authorization code
-- (void)requestAccessTokenWithAuthorizationCode:(NSString*)authorizationCode;
+- (void)requestAccessTokenWithAuthorizationCode:(NSString*)code;
 
 // retun authorized request object, if not authorized return nil
 - (NSMutableURLRequest*)authorizedRequestWithURL;

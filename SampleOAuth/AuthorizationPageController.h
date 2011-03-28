@@ -15,7 +15,7 @@
 @optional
 
 - (void)authorizationPageController:(AuthorizationPageController *)controller
-             didFinishUserAuthorize:(NSString *)authorizationCode;
+             didFinishUserAuthorize:(NSString *)code;
 
 @end
 
