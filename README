@@ -1,0 +1,7 @@
+* Please create file "SampleOAuth/OAuth2GoogleClient.h".
+* And write your google oauth client id/secret as follow.
+
+-- SampleOAuth/OAuth2GoogleClient.h --
+
+#define GOOGLE_OAUTH2_CLIENT_ID @"XXXXX"
+#define GOOGLE_OAUTH2_CLIENT_SECRET @"YYYYY"
