@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface Token : NSObject {
-@public
+@private
     // kind of value
     // 's' : string
     // 'n' : number
@@ -20,6 +20,8 @@
     char kind;
     id value;
 }
+@property (nonatomic, readonly) char kind;
+@property (nonatomic, readonly, retain) id value;
 - (id)initWithKind:(char)k value:(id)v;
 + (id)tokenWithKind:(char)k value:(id)v;
 @end

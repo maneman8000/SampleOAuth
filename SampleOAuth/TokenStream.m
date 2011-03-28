@@ -10,6 +10,7 @@
 
 
 @implementation Token
+@synthesize kind, value;
 
 - (id)initWithKind:(char)k value:(id)v {
     if ((self = [super init]) != nil) {
@@ -37,8 +38,8 @@
     if ((self = [super init]) != nil) {
         inputString = [input retain];
         searchRange.length = [input length];
-        notSpaceSet = [[NSCharacterSet whitespaceAndNewlineCharacterSet] invertedSet];
-        notNumberSet = [[NSCharacterSet characterSetWithCharactersInString:@".-0123456789"] invertedSet];
+        notSpaceSet = [[[NSCharacterSet whitespaceAndNewlineCharacterSet] invertedSet] retain];
+        notNumberSet = [[[NSCharacterSet characterSetWithCharactersInString:@".-0123456789"] invertedSet] retain];
         notStringSet = [[NSCharacterSet characterSetWithCharactersInString:@"\t\r\n\" .,-0123456789:{}[]"] retain];
     }
     return self;
@@ -49,6 +50,7 @@
     [notSpaceSet release];
     [notNumberSet release];
     [notStringSet release];
+    [pushBack release];
     [super dealloc];
 }
 
@@ -103,6 +105,7 @@ SR.location = R.location + R.length;
             } while (r.location < [inputString length] && [inputString characterAtIndex:r.location - 1] == 0x005C);
             if (r.location >= [inputString length]) {
                 searchRange.location = [inputString length];
+                searchRange.length = 0;
                 return nil;
             }
             NSRange rr = { searchRange.location, r.location - searchRange.location };

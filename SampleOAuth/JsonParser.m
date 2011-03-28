@@ -17,8 +17,7 @@
 @implementation JsonParser
 
 - (id)init {
-    if ((self = [super init]) != nil) {
-        
+    if ((self = [super init]) != nil) {        
     }
     return self;
 }
@@ -50,9 +49,9 @@
 
 - (id)value {
     Token *t = [tokenStream getToken];
-    switch (t->kind) {
+    switch (t.kind) {
         case 's': case 'n':
-            return t->value;
+            return t.value;
         case 't':
             return [NSNumber numberWithBool:YES];
         case 'f':
@@ -76,7 +75,7 @@
     [result addObject:value];
 
     Token *t = [tokenStream getToken];
-    if (!t || t->kind != ',') {
+    if (!t || t.kind != ',') {
         [tokenStream setPushBack:t];
         return;
     }
@@ -86,34 +85,34 @@
 
 - (NSMutableArray*)array {
     Token *t = [tokenStream getToken];
-    if (!t || t->kind != '[') return nil;
+    if (!t || t.kind != '[') return nil;
     
     NSMutableArray *result = [[[NSMutableArray alloc] init] autorelease];
     [self arrayContents:result];
     
     t = [tokenStream getToken];
-    if (!t || t->kind != ']') return nil;
+    if (!t || t.kind != ']') return nil;
     return result;
 }
 
 - (void)objectContents:(NSMutableDictionary*)result {
 
     Token *key = [tokenStream getToken];
-    if (!key || key->kind != 's') {
+    if (!key || key.kind != 's') {
         [tokenStream setPushBack:key];
         return;
     }
 
     Token *t = [tokenStream getToken];
-    if (!t || t->kind != ':') return;
+    if (!t || t.kind != ':') return;
 
     id val = [self value];
     if (!val) return;
-    [result setObject:val forKey:key->value];
+    [result setObject:val forKey:key.value];
 
     t = [tokenStream getToken];
-    if (!t || t->kind != ',') {
-        [tokenStream setPushBack:key];
+    if (!t || t.kind != ',') {
+        [tokenStream setPushBack:t];
         return;
     }
 
@@ -122,17 +121,18 @@
 
 - (NSMutableDictionary*)object {
     Token *t = [tokenStream getToken];
-    if (!t || t->kind != '{') return nil;
+    if (!t || t.kind != '{') return nil;
 
     NSMutableDictionary *result = [[[NSMutableDictionary alloc] init] autorelease];
     [self objectContents:result];
 
     t = [tokenStream getToken];
-    if (!t || t->kind != '}') return nil;
+    if (!t || t.kind != '}') return nil;
     return result;
 }
 
 - (NSDictionary*)parseFromString:(NSString*)input {
+    [tokenStream release];
     tokenStream = [[TokenStream alloc] initWithString:input];
     return [self object];
 }
