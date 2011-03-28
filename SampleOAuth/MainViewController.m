@@ -77,8 +77,8 @@
 }
 
 - (void)authorizationPageController:(AuthorizationPageController *)controller
-             didFinishUserAuthorize:(NSString *)accessToken {
-    [console setText:accessToken];
+             didFinishUserAuthorize:(NSString *)authorizationCode {
+    [console setText:authorizationCode];
 }
 
 @end
