@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C300AF08133C47E70000EB49 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C300AF07133C47E70000EB49 /* UIKit.framework */; };
+		C300AF0A133C47E70000EB49 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C300AF09133C47E70000EB49 /* Foundation.framework */; };
+		C300AF0C133C47E70000EB49 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C300AF0B133C47E70000EB49 /* CoreGraphics.framework */; };
+		C300AF12133C47E70000EB49 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C300AF10133C47E70000EB49 /* InfoPlist.strings */; };
+		C300AF15133C47E70000EB49 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C300AF14133C47E70000EB49 /* main.m */; };
+		C300AF18133C47E70000EB49 /* SampleOAuthAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C300AF17133C47E70000EB49 /* SampleOAuthAppDelegate.m */; };
+		C300AF1B133C47E70000EB49 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = C300AF19133C47E70000EB49 /* MainWindow.xib */; };
+		C30B925A133CDB6D00943E1B /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B9256133CDB6D00943E1B /* MainViewController.m */; };
+		C30B925B133CDB6D00943E1B /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C30B9257133CDB6D00943E1B /* MainViewController.xib */; };
+		C30B925C133CDB6D00943E1B /* OAuth2Google.m in Sources */ = {isa = PBXBuildFile; fileRef = C30B9259133CDB6D00943E1B /* OAuth2Google.m */; };
+		C393F45413405C020001DA74 /* JsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C393F45113405C020001DA74 /* JsonParser.m */; };
+		C393F45513405C020001DA74 /* TokenStream.m in Sources */ = {isa = PBXBuildFile; fileRef = C393F45313405C020001DA74 /* TokenStream.m */; };
+		C3FA7DD8133C993C00687BDA /* AuthorizationPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = C3FA7DD6133C993B00687BDA /* AuthorizationPageController.m */; };
+		C3FA7DD9133C993C00687BDA /* AuthorizationPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C3FA7DD7133C993C00687BDA /* AuthorizationPageController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		C300AF03133C47E70000EB49 /* SampleOAuth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleOAuth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C300AF07133C47E70000EB49 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C300AF09133C47E70000EB49 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		C300AF0B133C47E70000EB49 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		C300AF0F133C47E70000EB49 /* SampleOAuth-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SampleOAuth-Info.plist"; sourceTree = "<group>"; };
+		C300AF11133C47E70000EB49 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C300AF13133C47E70000EB49 /* SampleOAuth-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleOAuth-Prefix.pch"; sourceTree = "<group>"; };
+		C300AF14133C47E70000EB49 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C300AF16133C47E70000EB49 /* SampleOAuthAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleOAuthAppDelegate.h; sourceTree = "<group>"; };
+		C300AF17133C47E70000EB49 /* SampleOAuthAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleOAuthAppDelegate.m; sourceTree = "<group>"; };
+		C300AF1A133C47E70000EB49 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		C30B9255133CDB6D00943E1B /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MainViewController.h; path = /Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/MainViewController.h; sourceTree = "<absolute>"; };
+		C30B9256133CDB6D00943E1B /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MainViewController.m; path = /Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/MainViewController.m; sourceTree = "<absolute>"; };
+		C30B9257133CDB6D00943E1B /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainViewController.xib; path = /Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/MainViewController.xib; sourceTree = "<absolute>"; };
+		C30B9258133CDB6D00943E1B /* OAuth2Google.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OAuth2Google.h; path = /Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/OAuth2Google.h; sourceTree = "<absolute>"; };
+		C30B9259133CDB6D00943E1B /* OAuth2Google.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OAuth2Google.m; path = /Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/OAuth2Google.m; sourceTree = "<absolute>"; };
+		C393F45013405C020001DA74 /* JsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonParser.h; sourceTree = "<group>"; };
+		C393F45113405C020001DA74 /* JsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonParser.m; sourceTree = "<group>"; };
+		C393F45213405C020001DA74 /* TokenStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokenStream.h; sourceTree = "<group>"; };
+		C393F45313405C020001DA74 /* TokenStream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TokenStream.m; sourceTree = "<group>"; };
+		C3A1B1D81340918800D16494 /* OAuth2GoogleClientSecret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuth2GoogleClientSecret.h; sourceTree = "<group>"; };
+		C3FA7DD5133C993B00687BDA /* AuthorizationPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AuthorizationPageController.h; path = ../../../../../../Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/AuthorizationPageController.h; sourceTree = "<group>"; };
+		C3FA7DD6133C993B00687BDA /* AuthorizationPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AuthorizationPageController.m; path = ../../../../../../Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/AuthorizationPageController.m; sourceTree = "<group>"; };
+		C3FA7DD7133C993C00687BDA /* AuthorizationPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AuthorizationPageController.xib; path = ../../../../../../Users/akihiro/Program/iOS/SampleOAuth/SampleOAuth/AuthorizationPageController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C300AF00133C47E70000EB49 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C300AF08133C47E70000EB49 /* UIKit.framework in Frameworks */,
+				C300AF0A133C47E70000EB49 /* Foundation.framework in Frameworks */,
+				C300AF0C133C47E70000EB49 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C300AEF8133C47E70000EB49 = {
+			isa = PBXGroup;
+			children = (
+				C300AF0D133C47E70000EB49 /* SampleOAuth */,
+				C300AF06133C47E70000EB49 /* Frameworks */,
+				C300AF04133C47E70000EB49 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C300AF04133C47E70000EB49 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C300AF03133C47E70000EB49 /* SampleOAuth.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C300AF06133C47E70000EB49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C300AF07133C47E70000EB49 /* UIKit.framework */,
+				C300AF09133C47E70000EB49 /* Foundation.framework */,
+				C300AF0B133C47E70000EB49 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C300AF0D133C47E70000EB49 /* SampleOAuth */ = {
+			isa = PBXGroup;
+			children = (
+				C393F44E13405BC20001DA74 /* TinyJSON */,
+				C30B9255133CDB6D00943E1B /* MainViewController.h */,
+				C30B9256133CDB6D00943E1B /* MainViewController.m */,
+				C30B9257133CDB6D00943E1B /* MainViewController.xib */,
+				C30B9258133CDB6D00943E1B /* OAuth2Google.h */,
+				C3A1B1D81340918800D16494 /* OAuth2GoogleClientSecret.h */,
+				C30B9259133CDB6D00943E1B /* OAuth2Google.m */,
+				C3FA7DD5133C993B00687BDA /* AuthorizationPageController.h */,
+				C3FA7DD6133C993B00687BDA /* AuthorizationPageController.m */,
+				C3FA7DD7133C993C00687BDA /* AuthorizationPageController.xib */,
+				C300AF16133C47E70000EB49 /* SampleOAuthAppDelegate.h */,
+				C300AF17133C47E70000EB49 /* SampleOAuthAppDelegate.m */,
+				C300AF19133C47E70000EB49 /* MainWindow.xib */,
+				C300AF0E133C47E70000EB49 /* Supporting Files */,
+			);
+			path = SampleOAuth;
+			sourceTree = "<group>";
+		};
+		C300AF0E133C47E70000EB49 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C300AF0F133C47E70000EB49 /* SampleOAuth-Info.plist */,
+				C300AF10133C47E70000EB49 /* InfoPlist.strings */,
+				C300AF13133C47E70000EB49 /* SampleOAuth-Prefix.pch */,
+				C300AF14133C47E70000EB49 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C393F44E13405BC20001DA74 /* TinyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				C393F45013405C020001DA74 /* JsonParser.h */,
+				C393F45113405C020001DA74 /* JsonParser.m */,
+				C393F45213405C020001DA74 /* TokenStream.h */,
+				C393F45313405C020001DA74 /* TokenStream.m */,
+			);
+			name = TinyJSON;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C300AF02133C47E70000EB49 /* SampleOAuth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C300AF1E133C47E70000EB49 /* Build configuration list for PBXNativeTarget "SampleOAuth" */;
+			buildPhases = (
+				C300AEFF133C47E70000EB49 /* Sources */,
+				C300AF00133C47E70000EB49 /* Frameworks */,
+				C300AF01133C47E70000EB49 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SampleOAuth;
+			productName = SampleOAuth;
+			productReference = C300AF03133C47E70000EB49 /* SampleOAuth.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C300AEFA133C47E70000EB49 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C300AEFD133C47E70000EB49 /* Build configuration list for PBXProject "SampleOAuth" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C300AEF8133C47E70000EB49;
+			productRefGroup = C300AF04133C47E70000EB49 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C300AF02133C47E70000EB49 /* SampleOAuth */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C300AF01133C47E70000EB49 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C300AF12133C47E70000EB49 /* InfoPlist.strings in Resources */,
+				C300AF1B133C47E70000EB49 /* MainWindow.xib in Resources */,
+				C3FA7DD9133C993C00687BDA /* AuthorizationPageController.xib in Resources */,
+				C30B925B133CDB6D00943E1B /* MainViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C300AEFF133C47E70000EB49 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C300AF15133C47E70000EB49 /* main.m in Sources */,
+				C300AF18133C47E70000EB49 /* SampleOAuthAppDelegate.m in Sources */,
+				C3FA7DD8133C993C00687BDA /* AuthorizationPageController.m in Sources */,
+				C30B925A133CDB6D00943E1B /* MainViewController.m in Sources */,
+				C30B925C133CDB6D00943E1B /* OAuth2Google.m in Sources */,
+				C393F45413405C020001DA74 /* JsonParser.m in Sources */,
+				C393F45513405C020001DA74 /* TokenStream.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C300AF10133C47E70000EB49 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C300AF11133C47E70000EB49 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C300AF19133C47E70000EB49 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C300AF1A133C47E70000EB49 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C300AF1C133C47E70000EB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		C300AF1D133C47E70000EB49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		C300AF1F133C47E70000EB49 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleOAuth/SampleOAuth-Prefix.pch";
+				INFOPLIST_FILE = "SampleOAuth/SampleOAuth-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		C300AF20133C47E70000EB49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SampleOAuth/SampleOAuth-Prefix.pch";
+				INFOPLIST_FILE = "SampleOAuth/SampleOAuth-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C300AEFD133C47E70000EB49 /* Build configuration list for PBXProject "SampleOAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C300AF1C133C47E70000EB49 /* Debug */,
+				C300AF1D133C47E70000EB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C300AF1E133C47E70000EB49 /* Build configuration list for PBXNativeTarget "SampleOAuth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C300AF1F133C47E70000EB49 /* Debug */,
+				C300AF20133C47E70000EB49 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C300AEFA133C47E70000EB49 /* Project object */;
+}
