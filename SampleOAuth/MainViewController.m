@@ -30,6 +30,8 @@
 {
     [oauth release];
     [authorizationPageController release];
+    [connectionInProgress release];
+    [xmlData release];
     [super dealloc];
 }
 
@@ -85,11 +87,54 @@
 
 - (void)oauth2Google:(OAuth2Google*)oauth didReceiveAccessToken:(NSString*)token {
     [console setText:[NSString stringWithFormat:@"[SUCCESS]\n%@", token]];
+
+    NSMutableURLRequest *request = [oauth authorizedRequestWithURL:
+                                    @"https://picasaweb.google.com/data/feed/api/user/default"];
+
+    // Clear out the existing connection if there is one
+    if (connectionInProgress) {
+        [connectionInProgress cancel];
+        [connectionInProgress release];
+    }
+
+    [xmlData release];
+    xmlData = [[NSMutableData alloc] init];
+    
+    // Create and initiate the connection - non-blocking
+    connectionInProgress = [[NSURLConnection alloc] initWithRequest:request
+                                                           delegate:self
+                                                   startImmediately:YES];
 }
 
 - (void)oauth2Google:(OAuth2Google*)oauth didFailWithErrorMessage:(NSString*)message {
     [console setText:[NSString stringWithFormat:@"[ERROR]\n%@", message]];
 }
 
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [xmlData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [console setText:[[[NSString alloc] initWithData:xmlData encoding:NSUTF8StringEncoding] autorelease]];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+    int statusCode = [(NSHTTPURLResponse*)response statusCode];
+    if (statusCode >= 300) {
+        [console setText:[NSString stringWithFormat:@"%@\n\nHTTP error %d",
+                          [console text], statusCode]];
+    }
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [connectionInProgress release];
+    connectionInProgress = nil;
+    
+    [xmlData release];
+    xmlData = nil;
+    
+    [console setText:[NSString stringWithFormat:@"%@\n\nFetch failed: %@",
+                      [console text], [error localizedDescription]]];
+}
 
 @end

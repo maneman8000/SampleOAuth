@@ -37,6 +37,7 @@ NSString* encodeURIComponent(NSString* s) {
     [clientId release];
     [clientSecret release];
     [accessToken release];
+    [refreshToken release];
     [connectionInProgress release];
     [jsonData release];
     [super dealloc];
@@ -44,6 +45,20 @@ NSString* encodeURIComponent(NSString* s) {
 
 - (BOOL)authorized {
     return accessToken ? YES : NO;
+}
+
+- (void)setAccessToken:(NSString*)token {
+    if (token != accessToken) {
+        [accessToken release];
+        accessToken = [token retain];
+    }
+}
+
+- (void)setRefreshToken:(NSString*)token {
+    if (token != refreshToken) {
+        [refreshToken release];
+        refreshToken = [token retain];
+    }
 }
 
 - (NSURL*)authorizationURL {
@@ -91,28 +106,26 @@ NSString* encodeURIComponent(NSString* s) {
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     if (![delegate respondsToSelector:@selector(oauth2Google:didReceiveAccessToken:)]) return;
-    NSString* t = [[[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding] autorelease];
-    NSLog(@"received %@", t);
 
-    JsonParser *parser = [[JsonParser alloc] init];
+    JsonParser *parser = [[[JsonParser alloc] init] autorelease];
     NSMutableDictionary *parsedJson = [parser
-                                       parseFromString:[[[NSString alloc] initWithData:jsonData
-                                                                              encoding:NSUTF8StringEncoding] autorelease]];
+                                        parseFromString:[[[NSString alloc] initWithData:jsonData
+                                                                               encoding:NSUTF8StringEncoding] autorelease]];
     if (!parsedJson) {
         if ([delegate respondsToSelector:@selector(oauth2Google:didFailWithErrorMessage:)]) {
             [delegate oauth2Google:self didFailWithErrorMessage:@"JSON parse error!"];
         }
         return;
     }
-    accessToken = [[parsedJson objectForKey:@"access_token"] retain];
-    NSLog(@"access token %@", accessToken);
-    [parser release];
+    [self setAccessToken:[parsedJson objectForKey:@"access_token"]];
+    [self setRefreshToken:[parsedJson objectForKey:@"refresh_token"]];
     if (!accessToken) {
         if ([delegate respondsToSelector:@selector(oauth2Google:didFailWithErrorMessage:)]) {
             [delegate oauth2Google:self didFailWithErrorMessage:@"can't get access_token"];
         }
         return;
     }
+
     [delegate oauth2Google:self didReceiveAccessToken:accessToken];
 }
 
@@ -139,8 +152,14 @@ NSString* encodeURIComponent(NSString* s) {
     }
 }
 
-- (NSMutableURLRequest*)authorizedRequestWithURL {
-    return nil;
+- (NSMutableURLRequest*)authorizedRequestWithURL:(NSString*)urlstr {
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlstr]
+                                                           cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
+                                                       timeoutInterval:30];
+    [request addValue:[NSString stringWithFormat:@"OAuth %@", accessToken]
+   forHTTPHeaderField:@"Authorization"];
+
+    return request;
 }
 
 @end

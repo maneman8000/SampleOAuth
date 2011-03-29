@@ -27,6 +27,7 @@
     NSString *clientId;
     NSString *clientSecret;
     NSString *accessToken;
+    NSString *refreshToken;
     NSURLConnection *connectionInProgress;
     NSMutableData *jsonData;
 }
@@ -43,6 +44,6 @@
 - (void)requestAccessTokenWithAuthorizationCode:(NSString*)code;
 
 // retun authorized request object, if not authorized return nil
-- (NSMutableURLRequest*)authorizedRequestWithURL;
+- (NSMutableURLRequest*)authorizedRequestWithURL:(NSString*)urlstr;
 
 @end

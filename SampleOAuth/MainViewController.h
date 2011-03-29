@@ -14,6 +14,8 @@
     UITextView *console;
     OAuth2Google *oauth;
     AuthorizationPageController * authorizationPageController;
+    NSURLConnection *connectionInProgress;
+    NSMutableData *xmlData;
 }
 @property (nonatomic, retain) IBOutlet UITextView *console;
 
